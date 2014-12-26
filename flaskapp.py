@@ -1,12 +1,15 @@
 import os
 from datetime import datetime
 from flask import Flask, request, flash, url_for, redirect, \
-     render_template, abort, send_from_directory, session
+     render_template, abort, send_from_directory, session, make_response, jsonify
 
 app = Flask(__name__)
 app.config.from_pyfile('flaskapp.cfg')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/ric_cm_notificaciones'
+from constants import MYSQL_URI
+app.config['SQLALCHEMY_DATABASE_URI'] = MYSQL_URI
+
+
 from models import db
 db.init_app(app)
 
@@ -109,9 +112,13 @@ auth = HTTPBasicAuth()
 
 @auth.get_password
 def get_password(username):
-    if username == 'todo':
-        return 'ws'
-    return None
+	
+	user = Administrador.query.filter_by(email = username).first()
+	if user is not None:
+		return "cool"
+	else:
+		None
+
  
 @auth.error_handler
 def unauthorized():
