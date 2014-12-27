@@ -6,5 +6,5 @@ setup(name='FlaskApp',
       author='Ricardo Champa',
       author_email='sonrie.clickmobile@gmail.com',
       url='http://www.python.org/sigs/distutils-sig/',
-     install_requires=['Flask>=0.10.1'],
+     install_requires=['Flask>=0.10.1', 'MarkupSafe' , 'Flask-SQLAlchemy==2.0'],
      )

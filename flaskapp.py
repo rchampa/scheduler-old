@@ -102,6 +102,7 @@ def signout():
 
 """Alternative version of the ToDo RESTful server implemented using the Flask-RESTful extension."""
 
+"""
 from flask.views import MethodView
 from flask.ext.restful import Api, Resource, reqparse, fields, marshal
 from flask.ext.httpauth import HTTPBasicAuth
@@ -218,7 +219,7 @@ class TaskAPI(Resource):
 
 api.add_resource(TaskListAPI, '/todo/api/v1.0/tasks', endpoint = 'tasks')
 api.add_resource(TaskAPI, '/todo/api/v1.0/tasks/<int:id>', endpoint = 'task')
-
+"""
 
 
 
